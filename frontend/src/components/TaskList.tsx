@@ -8,7 +8,7 @@ import { useGetTasksQuery, useDeleteTaskMutation } from '../store/api/taskApi';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { ConfirmModal } from './ConfirmModal';
 
-const ITEMS_PER_PAGE = 10;
+// const ITEMS_PER_PAGE = 10;
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
