@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useGetTaskByIdQuery } from '../store/api/taskApi';
-import { TaskForm } from '../components/TaskForm';
+import TaskForm from '../components/TaskForm';
 import { ClipLoader } from 'react-spinners';
 
 const EditTaskPage: React.FC = () => {

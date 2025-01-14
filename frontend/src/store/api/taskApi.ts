@@ -29,10 +29,30 @@ export const taskApi = createApi({
       },
       providesTags: ['Task']
     }),
+    getTaskById: builder.query<Task, number>({
+      query: (id) => `/tasks/${id}`,
+      transformErrorResponse: (response) => {
+        console.error('API Error:', response);
+        return response;
+      },
+      providesTags: ['Task']
+    }),
     addTask: builder.mutation<Task, TaskFormData>({
       query: (task) => ({
         url: '/tasks',
         method: 'POST',
+        body: task
+      }),
+      transformErrorResponse: (response) => {
+        console.error('API Error:', response);
+        return response;
+      },
+      invalidatesTags: ['Task']
+    }),
+    updateTask: builder.mutation<Task, TaskFormData & { id: number }>({
+      query: ({ id, ...task }) => ({
+        url: `/tasks/${id}`,
+        method: 'PUT',
         body: task
       }),
       transformErrorResponse: (response) => {
@@ -69,7 +89,9 @@ export const taskApi = createApi({
 
 export const {
   useGetTasksQuery,
+  useGetTaskByIdQuery,
   useAddTaskMutation,
+  useUpdateTaskMutation,
   useDeleteTaskMutation,
   useUpdateTaskStatusMutation
 } = taskApi; 

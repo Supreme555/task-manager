@@ -7,6 +7,7 @@ import { store } from './store/store';
 import MainLayout from './layouts/MainLayout';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
+import EditTaskPage from './pages/EditTaskPage';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<TaskList />} />
             <Route path="create" element={<TaskForm />} />
+            <Route path="edit/:id" element={<EditTaskPage />} />
           </Route>
         </Routes>
         <ToastContainer

@@ -56,7 +56,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ task, onSuccess }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-2xl mx-auto px-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-2xl mx-auto px-4 mt-5">
       <div className="space-y-6">
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">
